@@ -82,7 +82,7 @@ void steer(int x){
 
   // replace the zeroes with the correct values
   //x = map(x, lower1, upper1, lower2, lower2); // *
-  x = map(x, -200,200,); // *
+  x = map(x, -200,200,0,180); // *
 
   // Write the new value for number of degrees we calculated to the servo motor 
   steering_servo.write(x);
