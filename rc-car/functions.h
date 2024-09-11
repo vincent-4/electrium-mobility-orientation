@@ -77,9 +77,12 @@ void steer(int x){
   // The syntax to do this is x = map(x, lower range 1, upper range 1, lower range 2, upper range 2)
   // Where lower range 1 and upper range 1 are the bounds of the original range we want to switch from
   // And lower range 2 and upper range 2 are the bounds of the new range we want to switch to
+  //steer() is responsible for turning. Its job is to take in the x coordinate that the user set, translate it into a 
+  //number of degrees we want to turn our car, and send that to the servo motor. We'll do this by writing a call to map().
 
   // replace the zeroes with the correct values
-  x = map(x, 0, 0, 0, 0); // *
+  //x = map(x, lower1, upper1, lower2, lower2); // *
+  x = map(x, -200,200,); // *
 
   // Write the new value for number of degrees we calculated to the servo motor 
   steering_servo.write(x);
