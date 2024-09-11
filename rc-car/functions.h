@@ -29,19 +29,19 @@ Servo (steering_servo) //*
 
 // **************************** FUNCTION FOR FORWARD AND BACKWARD MOTIONS **************************** //
 void run_motor(int y){
-  // FORWARD MOTION
+  // FORWARD MOTION, take in y coor and translate y into fwd/bwd motion
   if (y < 0){ 
     y = abs(y);
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, y);
-    
+    digitalWrite(MOTOR_IN1, HIGH)
+    digitalWrite(MOTOR_IN2, LOW)
     //  --------------------------- TODO #4: SET THE SIGNALS FOR FORWARD MOTION ---------------------------
     // We want to give the MOTOR_IN1 and MOTOR_IN2 pins the signals they need in order to go forwards
     // Refer to Table 1 in the documentation for the combination of signals to give the pins in order for them to achieve a forward motion
     // The syntax for setting the values of the pins is digitalWrite(pin, value); 
     // Where pin is the variable name of the pin we want to send the signals to
     // And value is either HIGH or LOW
-
     // *
   } 
 
@@ -49,7 +49,7 @@ void run_motor(int y){
   else if (y > 0){ 
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, abs(y));
-
+    digitalWrite()
     //  --------------------------- TODO #5: SET THE SIGNALS FOR REVERSE MOTION ---------------------------
     // Do the same as above, but for reverse motion! 
 
