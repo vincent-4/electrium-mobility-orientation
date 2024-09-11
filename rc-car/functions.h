@@ -8,9 +8,9 @@
 // You can refer to the Electrical work to find out what pins to set for your motor.
 
 #define MOTOR_IN1 D1 // Done as an example
-#define MOTOR_IN2 D0 // * 
-#define EN_PIN D0 // *
-#define SERVO_PIN D0 // *
+#define MOTOR_IN2 D2 // * 
+#define EN_PIN D5 // *
+#define SERVO_PIN D8 // *
 
 
 // --------------------------- TODO #2: RENAME SSID AND PASSWORD ---------------------------
@@ -34,8 +34,8 @@ void run_motor(int y){
     y = abs(y);
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, y);
-    digitalWrite(MOTOR_IN1,HIGH)
-    digitalWrite(MOTOR_IN2,LOW)
+    digitalWrite(D1, HIGH);
+    digitalWrite(D2, LOW);
     //  --------------------------- TODO #4: SET THE SIGNALS FOR FORWARD MOTION ---------------------------
     // We want to give the MOTOR_IN1 and MOTOR_IN2 pins the signals they need in order to go forwards
     // Refer to Table 1 in the documentation for the combination of signals to give the pins in order for them to achieve a forward motion
@@ -49,8 +49,8 @@ void run_motor(int y){
   else if (y > 0){ 
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, abs(y));
-    digitalWrite(MOTOR_IN1,LOW)
-    digitalWrite(MOTOR_IN2,HIGH)
+    digitalWrite(D1, LOW);
+    digitalWrite(D2, HIGH);
     //  --------------------------- TODO #5: SET THE SIGNALS FOR REVERSE MOTION ---------------------------
     // Do the same as above, but for reverse motion! 
 
@@ -59,7 +59,8 @@ void run_motor(int y){
   
   // STATIONARY
   else if (y == 0){
-
+    digitalWrite(D1, LOW);
+    digitalWrite(D2, LOW);
     //  --------------------------- TODO #6: SET THE SIGNALS FOR NO MOTION ---------------------------
     // Do the same as above, but if we want our car to be stationary!
     digitalWrite(MOTOR_IN1,LOW)
@@ -81,8 +82,7 @@ void steer(int x){
   //number of degrees we want to turn our car, and send that to the servo motor. We'll do this by writing a call to map().
 
   // replace the zeroes with the correct values
-  //x = map(x, lower1, upper1, lower2, lower2); // *
-  x = map(x, -200,200,0,180); // *
+  x = map(x, -200, 200, 0, 180); // *
 
   // Write the new value for number of degrees we calculated to the servo motor 
   steering_servo.write(x);
