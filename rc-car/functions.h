@@ -34,8 +34,8 @@ void run_motor(int y){
     y = abs(y);
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, y);
-    digitalWrite(MOTOR_IN1, HIGH)
-    digitalWrite(MOTOR_IN2, LOW)
+    digitalWrite(MOTOR_IN1,HIGH)
+    digitalWrite(MOTOR_IN2,LOW)
     //  --------------------------- TODO #4: SET THE SIGNALS FOR FORWARD MOTION ---------------------------
     // We want to give the MOTOR_IN1 and MOTOR_IN2 pins the signals they need in order to go forwards
     // Refer to Table 1 in the documentation for the combination of signals to give the pins in order for them to achieve a forward motion
@@ -49,7 +49,8 @@ void run_motor(int y){
   else if (y > 0){ 
     y = map(y, 0, 200, 102, 255);
     analogWrite(EN_PIN, abs(y));
-    digitalWrite()
+    digitalWrite(MOTOR_IN1,LOW)
+    digitalWrite(MOTOR_IN2,HIGH)
     //  --------------------------- TODO #5: SET THE SIGNALS FOR REVERSE MOTION ---------------------------
     // Do the same as above, but for reverse motion! 
 
@@ -61,7 +62,8 @@ void run_motor(int y){
 
     //  --------------------------- TODO #6: SET THE SIGNALS FOR NO MOTION ---------------------------
     // Do the same as above, but if we want our car to be stationary!
-
+    digitalWrite(MOTOR_IN1,LOW)
+    digitalWrite(MOTOR_IN2,LOW)
     // *
   }
   
